@@ -983,59 +983,24 @@ For [Karma coverage](https://karma-runner.github.io/0.8/config/coverage.html):
 
 Once the we run the command `npm test` we will see that it gets executed and the coverage folder comes in the root folder of the project. Open the `index.html` in browser to see the full report.
 
-#### Pushing to version control
+Once this is done we no longer need the `lib` folder and `spec-runner.html` hence, we can remove them. Push the code to your GIT account. Create repository `jasmine-cli-demo`.
 
-Steps
+*NOTE*: Removed file and folders: Check the folder `not required` for reference.
 
-1. Create a new repository in your personal git account.
-2. Copy the repository ssh URL.
-3. In the terminal run 
-    1. `git init` - local repository will be set
-    2. `git remote add origin <SSH URL>`
-    3. `git branch`
-    4. `git status` - You will see all the files inside this as not commited.
-4. Add `.gitignore` file in root directory and add `coverage\` and `node_modules`.
-5. Remove `spec-runner.html` file and `lib` folder as we no longer need this file. Just for reference at the end there is the `spec-runner.html` file preview before deleting.
-6. `git commit -m "Calculator"`
-7. `git push origin`
+#### Connecting to CI system
 
-**spec-runner.html**
+Continuous Integration is the practice of merging in small code changes frequently - rather than merging in a large change at the end of a development cycle. The goal is to build healthier software by developing and testing in smaller increments. This is where [Travis CI](https://docs.travis-ci.com/user/for-beginners/) comes in.
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <title>Simple Calculator</title>
-    <link rel="shortcut icon" type="image/png" href="lib/jasmine_favicon.png">
-    <link rel="stylesheet" href="lib/jasmine.css">
-    <script src="lib/jasmine.js"></script>
-    <script src="lib/jasmine-html.js"></script>
-    <script src="lib/boot.js"></script>
-    <script src="lib/jasmine-matchers.js"></script>
-    <!-- Custom Matchers -->
-    <script src="custom-matchers.js"></script>
-    <!-- JS -->
-    <script src="simple-calculator.js"></script>
-    <script src="main.js"></script>
-    <!-- SPECS -->
-    <script src="simple-calculator.spec.js"></script>
-    <script src="main.spec.js"></script>
-    </head>
-<body></body>
-</html>
-```
-**lib project structure*
+As a continuous integration platform, Travis CI supports your development process by automatically building and testing code changes, providing immediate feedback on the success of the change. Travis CI can also automate other parts of your development process by managing deployments and notifications.
 
-- lib
-    - boot.js
-    - jasmine_favicon.png
-    - jasmine-html.js
-    - jasmine-matchers.js
-    - jasmine.css
-    - jasmine.js
+##### Steps
 
+1. Login to [Travis CI](https://travis-ci.org/) using your github account.
+2. Click on + sign to add your repository - in our case it is `jasmine-cli-demo`.
+3. Click on **Activate repository**.
 
+Currently we have activated the repository but there is no configuration provided. Hence let us provide the configuration.
 
+#### Configuring Build
 
-
+Create `.travis.yml` in root directory. This will be read by Travis and it will execute the steps mentioned in this file. Remember different CI systems will have different configurations. Please checkout the file. Push the code and check the repository in Travis CI.
