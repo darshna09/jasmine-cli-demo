@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/darshna09/jasmine-cli-demo.svg?branch=master)](https://travis-ci.org/darshna09/jasmine-cli-demo)
 
+Credits: Udemy Course: Unit testing your Javascript with jasmine by Juan Lizarazo and Reynaldo Pena.
+
 ## Creating the Simple Calculator
 
 This calculator is going to do simple calculations: `+`, `-`, `*`,  and `/`
@@ -1005,10 +1007,12 @@ Currently we have activated the repository but there is no configuration provide
 
 #### Configuring Build
 
-Create `.travis.yml` in root directory. This will be read by Travis and it will execute the steps mentioned in this file. Remember different CI systems will have different configurations. Please checkout the file. Push the code and check the repository in Travis CI.
+Create `.travis.yml` in root directory. This will be read by Travis and it will execute the steps mentioned in this file. Remember different CI systems will have different configurations. Please checkout the file. Push the code and check the repository in Travis CI. For detailed information checkout the documentation.
 
 The build should start by default if not, then More Options > Trigger Build (inside your repository). This might take a while once done you will get the `build:passed` beside the repository title.
 
 #### Build Badge
+
+These badges are what come in the README.md files for repositories. Here we will add the badge for the build coming from Travis CI. It will let us know if the build is successful or not. In any scenario if our build fails we will be able to see the status here.
 
 Click on the `build:passed`, select the _FORMAT_ as **Markdown** and copy the RESULT. Paste it in your README.md (preferably at the top).
