@@ -1,0 +1,26 @@
+{
+  "name": "2-calculator",
+  "version": "0.1.0",
+  "description": "Creating the Simple Calculator",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^3.5.0",
+    "karma": "^5.0.9",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cli": "^2.0.0",
+    "karma-coverage": "^2.0.2",
+    "karma-jasmine": "^3.1.1",
+    "karma-jasmine-matchers": "^4.0.2",
+    "nyc": "^15.0.1",
+    "puppeteer": "^3.1.0"
+  }
+}

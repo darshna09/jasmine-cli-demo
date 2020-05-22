@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Calculator - Jasmine Testing</title>
+
+        <link rel="icon" href="lib/jasmine_favicon.png">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Open+Sans&display=swap" rel="stylesheet">
+
+        <script src="simple-calculator.js"></script>
+        <script src="main.js"></script>
+        <script>
+            window.onload = function() {
+                updateVersion();
+            }
+        </script>
+    </head>
+    <body>
+        <div class="parent">
+            <h1 class="title">Simple Calculator</h1>
+            <input 
+                class="inputOperation"
+                type="text" 
+                placeholder="Example 3+2"
+                onchange="calculate(this.value)"
+            >
+            <div class="container-result">
+                <div class="result">Result</div>
+                <span class="span-output" id="result">3</span>
+            </div>
+
+            <div class="version">
+                Version: 
+                <span id="version"></span>
+            </div>
+        </div>
+    </body>
+</html>
