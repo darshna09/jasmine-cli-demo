@@ -952,7 +952,27 @@ Inside `spec-runner.html` we have following scripts. It is not scalable in the l
 
 Karma needs to know about your project in order to test it and this is done via a [configuration file](https://karma-runner.github.io/5.0/config/configuration-file.html). The easiest way to generate an initial configuration file is by using the `karma init` command. Or you can create a new file `karma.conf.js` in the root directory.
 
-Please check `package.json` and `karma-conf.js` for more information.
+The basic configuration for `karma-conf.js`.
+
+```javascript
+module.exports = function(config) {
+    config.set({
+        frameworks: ['jasmine', 'jasmine-matchers'],
+        files: [
+            './custom-matchers.js',
+            '*.js',
+            '*.spec.js'
+        ],
+        plugins: [
+            'karma-jasmine',
+            'karma-jasmine-matchers',
+        ],
+        reporters: ['dots'],
+        color: true,
+        singleRun: true
+    });
+}
+```
 
 The `files` is important. In our case the `custom-matchers.js` is required before other JS files are loaded.
 
@@ -983,6 +1003,38 @@ For [Karma coverage](https://karma-runner.github.io/0.8/config/coverage.html):
 4. Add `karma-coverage` as a plugin in `karma.conf.js`.
 5. Configure `coverageReporter` in `karma.conf.js`. We will generate the HTML report.
 6. Add `preprocessors` for configuring the Istanbul package.
+
+Final `karma.conf.js`
+
+```javascript
+module.exports = function(config) {
+    config.set({
+        frameworks: ['jasmine', 'jasmine-matchers'],
+        preprocessors: {
+            '*.js': 'coverage'
+        },
+        files: [
+            './custom-matchers.js',
+            '*.js',
+            '*.spec.js'
+        ],
+        plugins: [
+            'karma-jasmine',
+            'karma-jasmine-matchers',
+            'karma-chrome-launcher',
+            'karma-coverage'
+        ],
+        reporters: ['dots', 'coverage'],
+        color: true,
+        browsers: ['ChromeHeadless'],
+        singleRun: true,
+        coverageReporter: {
+            dir: 'coverage/',
+            type: 'html'
+        }
+    });
+}
+```
 
 Once the we run the command `npm test` we will see that it gets executed and the coverage folder comes in the root folder of the project. Open the `index.html` in browser to see the full report.
 
