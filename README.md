@@ -55,9 +55,7 @@ A suite is a group of specs or a group of tests. In other words it is used to or
 
 #### Naming conventions
 
-`JS_FILE_NAME.spec.js` or `JS_FILE_NAME.spec.js`.
-
-For example, `simple-calculator.spec.js`.
+`JS_FILE_NAME.spec.js`. For example, `simple-calculator.spec.js`.
 
 #### Steps
 
@@ -101,6 +99,7 @@ _Add this to the `simple-calculator.spec.js` and run the `spec-runner.html`. Add
 Expectations means assertions (statements) which is either true/false.
 
 `expect` 5 + 5 `to be` 10 -> `true`
+
 `expect` 5 + 9 `to be` 10 -> `false` // This is actually 9
 
 ##### expect
@@ -151,7 +150,7 @@ xdescribe('Simple calculator', function() {
 
 ### Matchers
 
-It is a function which implements a boolean comparision between actual value and expected value. For example `toBe`
+It is a function which implements a boolean comparision between actual value and expected value. For example `toBe`.
 
 `expect(/* Actual value */).toBe(/* Expected value */)`
 Compares actual value and expected value, returns `true` or `false`.
@@ -240,7 +239,7 @@ it('should have constructor', function() {
 `undefined` is a 
 - global property
 - primitive data type (not an object and has no methods)
-- a value which is assigned to variables that have been ddeclared but not defined.
+- a value which is assigned to variables that have been declared but not defined.
 
 ```javascript
 it('has common operations', function() {
@@ -595,7 +594,7 @@ is same as
 spyOn(/* Object in which the function exists */, /* Function name */);
 ```
 
-because `stub()` is default for `spyOn()`. For example consider the following code snippet. Here we want to test that `updateResult` is called in the defnied conditions `Number.isNaN(numberA) || Number.isNaN(numberB) || !operation`.
+because `stub()` is default for `spyOn()`. For example consider the following code snippet. In this example we want to test the `updateResult` called in the provided conditions `Number.isNaN(numberA) || Number.isNaN(numberB) || !operation` is true.
 
 ```javascript
 it('validates expression if first parameter is invalid', function() {
